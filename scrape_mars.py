@@ -31,8 +31,9 @@ def scrape():
 
     # # JPL Mars Space Images - Featured Image
 
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
+    #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    #browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', headless=True)
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
     html = browser.html
@@ -80,9 +81,9 @@ def scrape():
 
     # # Mars Hemisperes
 
-    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
-
+    #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    #browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', headless=True)
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
 
