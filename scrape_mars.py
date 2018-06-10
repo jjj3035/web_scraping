@@ -43,7 +43,6 @@ def scrape():
     for article in articles:
         footer = article.find('footer')
         featured_image_url = 'https://www.jpl.nasa.gov' + footer.a['data-fancybox-href']
-        print (featured_image_url)
     mars_data["featured_image_url"] = featured_image_url
 
 
