@@ -1,10 +1,10 @@
 
 # Dependencies
+import os
 from bs4 import BeautifulSoup as bs
 import requests
 from splinter import Browser
 import pandas as pd
-
 
 def scrape():
     mars_data = {}
@@ -32,11 +32,12 @@ def scrape():
     # # JPL Mars Space Images - Featured Image
 
     #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    #browser = Browser('chrome', **executable_path, headless=False)
-    browser = Browser('chrome', headless=True)
+    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    browser = Browser('chrome', **executable_path, headless=True)
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
     html = browser.html
+    
     soup = bs(html, 'html.parser')
     articles = soup.find_all('article', class_='carousel_item')
 
@@ -79,13 +80,8 @@ def scrape():
     mars_data["mars_facts"] = html_table
 
     # # Mars Hemisperes
-
-    #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    #browser = Browser('chrome', **executable_path, headless=False)
-    browser = Browser('chrome', headless=True)
     url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
     browser.visit(url)
-
     html = browser.html
     soup = bs(html, 'html.parser')
 
