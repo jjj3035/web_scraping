@@ -31,8 +31,8 @@ def scrape():
 
     # # JPL Mars Space Images - Featured Image
 
-    #executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-    executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
+    executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+    #executable_path = {'executable_path': '/app/.chromedriver/bin/chromedriver'}
     browser = Browser('chrome', **executable_path, headless=True)
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url)
